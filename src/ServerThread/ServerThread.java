@@ -9,21 +9,21 @@ import java.util.Scanner;
  *
  * @author ALUNO
  */
-public class ServerThread implements Runnable{
-    
-    private InputStream client;
-    private Server servidor;
+public class ServerThread implements Runnable {
 
-    public ServerThread(InputStream client, Server servidor) {
-        this.client = client;
-        this.servidor = servidor;
-    }
+	private InputStream client;
+	private Server servidor;
 
-    public void run() {
-        Scanner entradaMsg = new Scanner(this.client);
-        while (entradaMsg.hasNextLine()) {
-            servidor.distribuiMensagem(entradaMsg.nextLine());
-        }
-        entradaMsg.close();
-    }
+	public ServerThread(InputStream client, Server servidor) {
+		this.client = client;
+		this.servidor = servidor;
+	}
+
+	public void run() {
+		Scanner entradaMsg = new Scanner(this.client);
+		while (entradaMsg.hasNextLine()) {
+			servidor.distribuiMensagem(entradaMsg.nextLine());
+		}
+		entradaMsg.close();
+	}
 }

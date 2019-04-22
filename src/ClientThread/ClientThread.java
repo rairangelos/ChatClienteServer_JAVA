@@ -10,19 +10,19 @@ import java.util.Scanner;
  */
 public class ClientThread implements Runnable {
 
-        private InputStream servidor;
+	private InputStream servidor;
 
-        public ClientThread(InputStream servidor) {
-            this.servidor = servidor;
-        }
+	public ClientThread(InputStream servidor) {
+		this.servidor = servidor;
+	}
 
-        public void run() {
-        // recebe msgs do servidor e imprime na tela
-            Scanner saidaTela = new Scanner(this.servidor);
-            while (saidaTela.hasNextLine()) {
-                //request.setCharacterEncoding("UTF8");
-                System.out.println(saidaTela.nextLine());
-            }
-    }
-    
+	public void run() {
+		// recebe msgs do servidor e imprime na tela
+		Scanner saidaTela = new Scanner(this.servidor);
+		while (saidaTela.hasNextLine()) {
+			// request.setCharacterEncoding("UTF8");
+			System.out.println(saidaTela.nextLine());
+		}
+	}
+
 }
