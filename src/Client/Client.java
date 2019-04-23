@@ -42,9 +42,14 @@ public class Client {
 		PrintStream saida = new PrintStream(client.getOutputStream());
 		// lê msgs do teclado e manda pro servidor
 		while (teclado.hasNextLine()) {
-			saida.println(teclado.nextLine());
+			if(teclado.hasNext("quit")) {
+				System.out.println("Clinete Desconectado");
+				System.exit(0);
+			}else {
+				saida.println(teclado.nextLine());
+			}
 		}
-
+		
 		saida.close();
 		teclado.close();
 		client.close();
